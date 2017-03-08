@@ -13,7 +13,7 @@ service applied to these recipes.
 For now, they do continue to get minimal testing by the Yocto Project but this will
 eventually be stopped, with anyone wanting to use them taking up the maintainership.
 
-The current maintainer for the layer is Richard Purdie <richard.purdie@linuxfoundation.org>
+The current maintainer for the layer is Ross Burton <ross.burton@intel.com>
 
 Where to Send Patches
 =====================
