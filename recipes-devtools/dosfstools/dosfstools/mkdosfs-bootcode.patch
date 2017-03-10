@@ -183,7 +183,7 @@ Index: dosfstools-2.11/mkdosfs/mkdosfs.c
  	   program_name);
  
 -  while ((c = getopt (argc, argv, "AbcCf:F:Ii:l:m:n:r:R:s:S:h:v")) != EOF)
-+  while ((c = getopt (argc, argv, "AbcCf:F:Ii:l:m:n:r:R:s:S:v:B:")) != EOF)
++  while ((c = getopt (argc, argv, "AbcCf:F:Ii:l:m:n:r:R:s:S:h:v:B:")) != EOF)
      /* Scan the command line for options */
      switch (c)
        {
