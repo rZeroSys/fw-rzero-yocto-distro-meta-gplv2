@@ -35,6 +35,8 @@ SRC_URI += "\
         file://elf_begin.c-CVE-2014-9447-fix.patch \
         file://fix-build-gcc-4.8.patch \
         file://gcc6.patch \
+        file://0001-Fix-fallthrough-warnings.patch \
+        file://0002-Fix-printf-overflow-warnings.patch \
 "
 # Only apply when building uclibc based target recipe
 SRC_URI_append_libc-uclibc = " file://uclibc-support-for-elfutils-0.148.patch"
