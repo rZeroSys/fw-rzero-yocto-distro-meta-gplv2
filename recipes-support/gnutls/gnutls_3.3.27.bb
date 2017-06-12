@@ -3,7 +3,7 @@ require recipes-support/gnutls/gnutls.inc
 LIC_FILES_CHKSUM = "file://COPYING;md5=d32239bcb673463ab874e80d47fae504 \
                     file://COPYING.LESSER;md5=a6f89e2100d9b6cdffcea4f398e37343"
 
-FILESEXTRAPATHS_prepend = "${COREBASE}/meta/recipes-support/${BPN}/${BPN}:"
+FILESEXTRAPATHS_prepend = "${THISDIR}/${BPN}:${COREBASE}/meta/recipes-support/${BPN}/${BPN}:"
 
 SRC_URI += " \
     file://correct_rpl_gettimeofday_signature.patch \
