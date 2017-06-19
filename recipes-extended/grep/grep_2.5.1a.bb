@@ -16,6 +16,7 @@ SRC_URI = "${GNU_MIRROR}/grep/grep-${PV}.tar.bz2 \
            file://grep-CVE-2012-5667.patch \
            file://fix-for-texinfo-5.1.patch \
            file://grep-egrep-fgrep-Fix-LSB-NG-cases.patch \
+           file://search-fix-compilation-error-with-security-flags-ena.patch \
           "
 
 SRC_URI[md5sum] = "52202fe462770fa6be1bb667bd6cf30c"
