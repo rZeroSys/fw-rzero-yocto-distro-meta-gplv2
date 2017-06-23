@@ -1,12 +1,9 @@
-require recipes-support/gnutls/gnutls.inc
+require gnutls.inc
 
 LIC_FILES_CHKSUM = "file://COPYING;md5=d32239bcb673463ab874e80d47fae504 \
                     file://COPYING.LESSER;md5=a6f89e2100d9b6cdffcea4f398e37343"
 
-FILESEXTRAPATHS_prepend = "${THISDIR}/${BPN}:${COREBASE}/meta/recipes-support/${BPN}/${BPN}:"
-
 SRC_URI += " \
-    file://correct_rpl_gettimeofday_signature.patch \
     file://configure.ac-fix-sed-command.patch \
     file://use-pkg-config-to-locate-zlib.patch \
 "
@@ -18,6 +15,3 @@ SRC_URI[sha256sum] = "8dfda16c158ef5c134010d51d1a91d02aa5d43b8cb711b1572650a7ffb
 PACKAGECONFIG[libidn] = ""
 # but it still has the libidn dependency, without this option
 EXTRA_OECONF += "--disable-crywrap"
-
-# This version doesn't support this option added in newer gnutls
-EXTRA_OECONF_remove = "--without-libunistring-prefix"
