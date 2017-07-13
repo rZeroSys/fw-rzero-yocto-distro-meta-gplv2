@@ -23,4 +23,4 @@ line. Before sending, be sure the patches apply cleanly to the current master br
 git repository.
 
     Git repository: http://git.yoctoproject.org/cgit.cgi/meta-gplv2/
-    Mailing list: yocto@lists.yoctoproject.org
+    Mailing list: yocto@yoctoproject.org
