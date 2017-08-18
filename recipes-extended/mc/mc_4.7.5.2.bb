@@ -10,6 +10,7 @@ PR = "r3"
 
 SRC_URI = "http://www.midnight-commander.org/downloads/${BPN}-${PV}.tar.bz2 \
            file://mc-CTRL.patch \
+           file://0001-disable-Ctrl-g-key-and-Ctrl-key.patch \
            "
 
 SRC_URI[md5sum] = "bdae966244496cd4f6d282d80c9cf3c6"
