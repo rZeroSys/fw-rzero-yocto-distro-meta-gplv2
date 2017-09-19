@@ -18,6 +18,7 @@ SRC_URI = "${GNUPG_MIRROR}/gnupg/gnupg-${PV}.tar.bz2 \
            file://CVE-2013-4351.patch \
            file://CVE-2013-4576.patch \
            file://CVE-2013-4242.patch \
+           file://fix-ustar-check-issue.patch \
 	  "
 
 SRC_URI[md5sum] = "b06a141cca5cd1a55bbdd25ab833303c"
@@ -74,12 +75,13 @@ inherit autotools gettext texinfo
 #   --disable-regex         do not handle regular expressions in trust sigs
 
 EXTRA_OECONF = "--disable-ldap \
-		--with-zlib=${STAGING_LIBDIR}/.. \
-		--with-bzip2=${STAGING_LIBDIR}/.. \
-		--disable-selinux-support \
+                --with-zlib=${STAGING_LIBDIR}/.. \
+                --with-bzip2=${STAGING_LIBDIR}/.. \
+                --disable-selinux-support \
                 --with-readline=${STAGING_LIBDIR}/.. \
                 ac_cv_sys_symbol_underscore=no \
-		"
+                ac_cv_path_TAR=${base_bindir}/tar \
+               "
 
 # Force gcc's traditional handling of inline to avoid issues with gcc 5
 CFLAGS += "-fgnu89-inline"
