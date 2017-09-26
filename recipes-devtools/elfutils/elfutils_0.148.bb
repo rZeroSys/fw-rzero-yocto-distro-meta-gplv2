@@ -37,6 +37,8 @@ SRC_URI += "\
         file://gcc6.patch \
         file://0001-Fix-fallthrough-warnings.patch \
         file://0002-Fix-printf-overflow-warnings.patch \
+        file://0001-Make-it-compile-with-GCC-7.patch \
+        file://0002-Make-it-build-with-GCC-7-and-compile-time-hardening-.patch \
 "
 # Only apply when building uclibc based target recipe
 SRC_URI_append_libc-uclibc = " file://uclibc-support-for-elfutils-0.148.patch"
