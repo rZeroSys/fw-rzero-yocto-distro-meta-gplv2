@@ -9,12 +9,13 @@ PR = "r1"
 LIC_FILES_CHKSUM = "file://COPYING;md5=e43fc16fccd8519fba405f0a0ff6e8a3"
 
 SRC_URI = "${GNU_MIRROR}/${BPN}/old/${BP}.tar.gz \
-          file://groff-1.18.1.4-remove-mom.patch;striplevel=1 \
-          file://man-local.patch \
-          file://mdoc-local.patch \
-          file://groff-1.18.1.4-fix-bindir.patch \
-          file://fix-narrowing-conversion-error.patch \
-" 
+           file://groff-1.18.1.4-remove-mom.patch;striplevel=1 \
+           file://man-local.patch \
+           file://mdoc-local.patch \
+           file://groff-1.18.1.4-fix-bindir.patch \
+           file://fix-narrowing-conversion-error.patch \
+           file://0001-Make-it-build-with-compile-time-hardening-enabled.patch \
+"
 
 inherit autotools texinfo
 
