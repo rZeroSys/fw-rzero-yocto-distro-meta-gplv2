@@ -15,6 +15,7 @@ SRC_URI = "${GNU_MIRROR}/${BPN}/old/${BP}.tar.gz \
            file://groff-1.18.1.4-fix-bindir.patch \
            file://fix-narrowing-conversion-error.patch \
            file://0001-Make-it-build-with-compile-time-hardening-enabled.patch \
+           file://0002-Drop-local-getopt-implementation-in-favor-of-the-one.patch \
 "
 
 inherit autotools texinfo
