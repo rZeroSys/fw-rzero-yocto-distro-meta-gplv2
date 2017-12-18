@@ -40,6 +40,10 @@ SRC_URI += "\
         file://0001-Make-it-compile-with-GCC-7.patch \
         file://0002-Make-it-build-with-GCC-7-and-compile-time-hardening-.patch \
 "
+
+# Only apply when building musl based target recipe
+SRC_URI_append_libc-musl = " file://musl-support-for-elfutils-0.148.patch"
+
 # Only apply when building uclibc based target recipe
 SRC_URI_append_libc-uclibc = " file://uclibc-support-for-elfutils-0.148.patch"
 
@@ -63,10 +67,11 @@ do_configure_prepend() {
     cp ${WORKDIR}/*dis.h ${S}/libcpu
 }
 
-# we can not build complete elfutils when using uclibc
+# we can not build complete elfutils when using uclibc or musl
 # but some recipes e.g. gcc 4.5 depends on libelf so we
-# build only libelf for uclibc case
+# build only libelf for uclibc and musl cases
 
+EXTRA_OEMAKE_libc-musl = "-C libelf"
 EXTRA_OEMAKE_libc-uclibc = "-C libelf"
 EXTRA_OEMAKE_class-native = ""
 EXTRA_OEMAKE_class-nativesdk = ""
