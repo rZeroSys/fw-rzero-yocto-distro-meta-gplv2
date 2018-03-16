@@ -1,4 +1,4 @@
-From c369dd7049f5a198f8b6c96fde6e294ce5146c2f Mon Sep 17 00:00:00 2001
+From 95c6efc308c314f0cfe874d6a26cd1f59089adf6 Mon Sep 17 00:00:00 2001
 From: Haiqing Bai <Haiqing.Bai@windriver.com>
 Date: Fri, 9 Dec 2016 16:16:45 +0800
 Subject: [PATCH] nettle: check header files of openssl only if
@@ -10,6 +10,7 @@ building for nettle.
 
 Upstream-Status: Pending
 Signed-off-by: Haiqing Bai <Haiqing.Bai@windriver.com>
+
 ---
  configure.ac | 8 +++++---
  1 file changed, 5 insertions(+), 3 deletions(-)
@@ -33,6 +34,3 @@ index 78a3d4e..4f16a98 100644
  
  LSH_FUNC_ALLOCA
  LSH_FUNC_STRERROR
--- 
-1.9.1
-
