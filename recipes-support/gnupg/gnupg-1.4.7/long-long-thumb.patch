@@ -15,5 +15,4 @@ Upstream-Status: Inappropriate [configuration]
 +#if defined (__arm__) && W_TYPE_SIZE == 32 && !defined(__thumb__)
  #define add_ssaaaa(sh, sl, ah, al, bh, bl) \
    __asm__ ("adds %1, %4, %5\n"                                          \
-          "adc  %0, %2, %3"                                            \
-
+ 	   "adc  %0, %2, %3"                                            \
