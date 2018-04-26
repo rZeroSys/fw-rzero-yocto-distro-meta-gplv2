@@ -1,6 +1,7 @@
 require rsync.inc
 
 SRC_URI += "file://rsync-2.6.9-fname-obo.patch \
+            file://0001-Make-it-build-with-compile-time-hardening-enabled.patch \
             file://rsyncd.conf \
 "
 
