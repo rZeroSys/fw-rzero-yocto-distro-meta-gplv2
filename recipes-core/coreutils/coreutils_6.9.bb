@@ -21,10 +21,8 @@ SRC_URI = "${GNU_MIRROR}/coreutils/${BP}.tar.bz2 \
            file://coreutils-i18n.patch \
            file://coreutils-overflow.patch \
            file://coreutils-fix-install.patch \
-           file://man-touch.patch \
            file://coreutils_fix_for_automake-1.12.patch \
            file://coreutils-fix-texinfo.patch \
-           file://fix_for_manpage_building.patch \
            file://loadavg.patch \
            file://no-man.patch \
            file://build-don-t-need-charset.alias-when-building-for-mus.patch \
