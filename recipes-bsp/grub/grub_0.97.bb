@@ -12,7 +12,7 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=c93c0550bd3173f4504b2cbd8991e50b \
 RDEPENDS_${PN} = "diffutils"
 PR = "r6"
 
-SRC_URI = "ftp://alpha.gnu.org/gnu/grub/grub-${PV}.tar.gz; \
+SRC_URI = "http://alpha.gnu.org/gnu/grub/grub-${PV}.tar.gz; \
            file://no-reorder-functions.patch \
            file://autohell.patch \
            file://grub_fix_for_automake-1.12.patch \
