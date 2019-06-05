@@ -57,6 +57,10 @@ SRC_URI += "\
 "
 inherit autotools gettext
 
+# There is a fix in 0.175 version (https://sourceware.org/bugzilla/show_bug.cgi?id=23884)
+# but 0.175 has different license, so to be safe don't backport the fix, just ignore the issue
+CFLAGS += "-Wno-error=missing-attributes"
+
 EXTRA_OECONF = "--program-prefix=eu- --without-lzma"
 EXTRA_OECONF_append_class-native = " --without-bzlib"
 EXTRA_OECONF_append_libc-uclibc = " --enable-uclibc"
