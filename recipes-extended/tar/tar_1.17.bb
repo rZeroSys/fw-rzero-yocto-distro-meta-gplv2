@@ -8,6 +8,7 @@ PR = "r3"
 SRC_URI += "file://m4extensions.patch \
     file://gcc43build.patch \
     file://avoid_heap_overflow.patch \
+    file://0001-lib-argp-parse.c-Fix-compiler-error.patch \
     "
 
 SRC_URI[md5sum] = "c6c4f1c075dbf0f75c29737faa58f290"
