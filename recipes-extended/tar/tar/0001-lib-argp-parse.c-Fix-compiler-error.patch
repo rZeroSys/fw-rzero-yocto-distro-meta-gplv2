@@ -11,6 +11,7 @@ This avoids the following error:
     __argp_error (state, dgettext (state->root_argp->argp_domain,
     ^~~~~~~~~~~~
 
+Upstream-Status: Inappropriate [old version]
 Signed-off-by: Joakim Roubert <joakim.roubert@axis.com>
 ---
  lib/argp-parse.c | 2 +-
