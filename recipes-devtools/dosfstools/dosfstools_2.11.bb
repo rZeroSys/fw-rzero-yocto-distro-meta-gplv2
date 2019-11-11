@@ -19,6 +19,7 @@ SRC_URI = "http://pkgs.fedoraproject.org/repo/pkgs/${BPN}/${BP}.src.tar.gz/407d4
            file://nofat32_autoselect.patch \
            file://fix_populated_dosfs_creation.patch \
            file://0001-Include-fcntl.h-for-getting-loff_t-definition.patch \
+	   file://fixing-out-of-bound-writes.patch \
 "
 
 SRC_URI[md5sum] = "407d405ade410f7597d364ab5dc8c9f6"
