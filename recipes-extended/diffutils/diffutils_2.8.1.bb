@@ -9,6 +9,7 @@ SRC_URI = "${GNU_MIRROR}/diffutils/diffutils-${PV}.tar.gz \
            file://diffutils_fix_for_automake-1.12.patch \
            file://fix_gcc6.patch \
            file://0001-Make-it-build-with-compile-time-hardening-enabled.patch \
+           file://0002-included-libc-use-mempcpy-instead-of.patch \
            "
 
 SRC_URI[md5sum] = "71f9c5ae19b60608f6c7f162da86a428"
