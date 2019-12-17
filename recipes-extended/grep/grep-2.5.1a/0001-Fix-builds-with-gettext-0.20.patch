@@ -1,0 +1,38 @@
+From e11be23d694c8bd4e62252874d163d06b6de3117 Mon Sep 17 00:00:00 2001
+From: Alexander Kanavin <alex.kanavin@gmail.com>
+Date: Tue, 17 Dec 2019 16:46:05 +0100
+Subject: [PATCH] Fix builds with gettext 0.20
+
+Upstream-Status: Inappropriate [fixing an old version]
+Signed-off-by: Alexander Kanavin <alex.kanavin@gmail.com>
+---
+ Makefile.am  | 2 +-
+ configure.in | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/Makefile.am b/Makefile.am
+index e4b58c4..a851b9d 100644
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -1,7 +1,7 @@
+ ## Process this file with automake to create Makefile.in
+ AUTOMAKE_OPTIONS = no-dependencies
+ 
+-SUBDIRS = intl po lib doc src tests m4 vms bootstrap
++SUBDIRS = po lib doc src tests m4 vms bootstrap
+ 
+ EXTRA_DIST = TODO README README-alpha PATCHES.AC PATCHES.AM
+ 
+diff --git a/configure.in b/configure.in
+index 2fa6c71..c042a10 100644
+--- a/configure.in
++++ b/configure.in
+@@ -70,7 +70,7 @@ esac
+ 
+ dnl I18N feature
+ ALL_LINGUAS="cs de el eo es et fr gl hr id it ja ko nl no pl pt_BR ru sl sv"
+-AM_GNU_GETTEXT
++AM_GNU_GETTEXT([external])
+ 
+ dnl DOS file name convention
+ dnl sets HAVE_DOS_FILE_NAMES

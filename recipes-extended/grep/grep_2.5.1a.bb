@@ -17,7 +17,8 @@ SRC_URI = "${GNU_MIRROR}/grep/grep-${PV}.tar.bz2 \
            file://fix-for-texinfo-5.1.patch \
            file://grep-egrep-fgrep-Fix-LSB-NG-cases.patch \
            file://search-fix-compilation-error-with-security-flags-ena.patch \
-          "
+           file://0001-Fix-builds-with-gettext-0.20.patch \
+           "
 
 SRC_URI[md5sum] = "52202fe462770fa6be1bb667bd6cf30c"
 SRC_URI[sha256sum] = "38c8a2bb9223d1fb1b10bdd607cf44830afc92fd451ac4cd07619bf92bdd3132"
