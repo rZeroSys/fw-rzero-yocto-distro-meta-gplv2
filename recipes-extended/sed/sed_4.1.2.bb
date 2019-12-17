@@ -9,7 +9,9 @@ PR = "r7"
 SRC_URI = "${GNU_MIRROR}/sed/sed-${PV}.tar.gz \
            file://fix_return_type.patch \
            file://sed-4.1.2_fix_for_automake-1.12.patch \
-           file://Makevars"
+           file://Makevars \
+           file://0001-Fix-builds-with-gettext-0.20.patch \
+           "
 
 SRC_URI[md5sum] = "928f0e06422f414091917401f1a834d0"
 SRC_URI[sha256sum] = "638e837ba765d5da0a30c98b57c2953cecea96827882f594612acace93ceeeab"
