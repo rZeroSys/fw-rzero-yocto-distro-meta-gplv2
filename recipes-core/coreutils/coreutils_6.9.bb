@@ -32,9 +32,15 @@ SRC_URI = "${GNU_MIRROR}/coreutils/${BP}.tar.bz2 \
 SRC_URI[md5sum] = "c9607d8495f16e98906e7ed2d9751a06"
 SRC_URI[sha256sum] = "89c2895ad157de50e53298b22d91db116ee4e1dd3fdf4019260254e2e31497b0"
 
-EXTRA_OECONF += "ac_cv_func_getgroups_works=yes \
+CACHED_CONFIGUREVARS = "ac_cv_func_getgroups_works=yes \
                  ac_cv_func_strcoll_works=yes \
                  ac_cv_func_working_mktime=yes \
+                 jm_ac_cv_func_link_follows_symlink=no \
+                 jm_cv_func_unlink_busy_text=yes \
+                 jm_cv_have_proc_uptime=yes \
+                 gl_cv_func_mkdir_trailing_slash_bug=no \
+                 gl_cv_func_rename_trailing_slash_bug=no \
+                 gl_cv_func_rename_trailing_dest_slash_bug=no \
                  "
 
 # acl is not a default feature
