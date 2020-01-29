@@ -9,7 +9,7 @@ DEPENDS = "libxml2 intltool-native glib-2.0 shared-mime-info-native"
 
 SRC_URI = "http://freedesktop.org/~hadess/shared-mime-info-${PV}.tar.xz"
 
-inherit autotools pkgconfig gettext
+inherit autotools pkgconfig gettext mime
 
 EXTRA_OECONF = "--disable-update-mimedb"
 
