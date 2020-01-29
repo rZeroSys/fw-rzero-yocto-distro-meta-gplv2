@@ -7,6 +7,7 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=751419260aa954499f7abaabaa882bbe \
 
 SRC_URI = "${GNU_MIRROR}/gzip/gzip-${PV}.tar.gz \
            file://m4-extensions-fix.patch \
+           file://fix-shell.patch \
            file://dup-def-fix.patch"
 
 SRC_URI[md5sum] = "b5bac2d21840ae077e0217bc5e4845b1"
