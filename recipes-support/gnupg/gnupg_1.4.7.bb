@@ -20,7 +20,8 @@ SRC_URI = "${GNUPG_MIRROR}/gnupg/gnupg-${PV}.tar.bz2 \
            file://CVE-2013-4242.patch \
            file://fix-ustar-check-issue.patch \
            file://0001-Make-it-build-with-gettext-0.20.patch \
-          "
+           file://0001-Make-it-build-with-GCC-10-which-uses-fno-common-by-d.patch \
+           "
 
 SRC_URI[md5sum] = "b06a141cca5cd1a55bbdd25ab833303c"
 SRC_URI[sha256sum] = "69d18b7d193f62ca27ed4febcb4c9044aa0c95305d3258fe902e2fae5fc6468d"

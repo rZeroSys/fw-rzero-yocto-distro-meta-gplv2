@@ -1,0 +1,93 @@
+From 1d0141d77d4f81cfa3213370fb7eeddbf53fc085 Mon Sep 17 00:00:00 2001
+From: Peter Kjellerstedt <pkj@axis.com>
+Date: Tue, 1 Sep 2020 00:29:22 +0200
+Subject: [PATCH] Make it build with GCC 10 (which uses -fno-common by default)
+
+Signed-off-by: Peter Kjellerstedt <peter.kjellerstedt@axis.com>
+---
+ g10/options.h    | 3 +--
+ include/cipher.h | 2 +-
+ include/iobuf.h  | 2 +-
+ include/memory.h | 2 +-
+ include/mpi.h    | 2 +-
+ tools/mpicalc.c  | 1 +
+ 6 files changed, 6 insertions(+), 6 deletions(-)
+
+diff --git a/g10/options.h b/g10/options.h
+index c5f0f22..33ed333 100644
+--- a/g10/options.h
++++ b/g10/options.h
+@@ -28,8 +28,7 @@
+ #include "packet.h"
+ 
+ #ifndef EXTERN_UNLESS_MAIN_MODULE
+-/* Norcraft can't cope with common symbols */
+-#if defined (__riscos__) && !defined (INCLUDED_BY_MAIN_MODULE)
++#if !defined (INCLUDED_BY_MAIN_MODULE)
+ #define EXTERN_UNLESS_MAIN_MODULE extern
+ #else
+ #define EXTERN_UNLESS_MAIN_MODULE 
+diff --git a/include/cipher.h b/include/cipher.h
+index 168ab41..794c12b 100644
+--- a/include/cipher.h
++++ b/include/cipher.h
+@@ -109,7 +109,7 @@ struct gcry_md_context {
+ typedef struct gcry_md_context *MD_HANDLE;
+ 
+ #ifndef EXTERN_UNLESS_MAIN_MODULE
+-#if defined (__riscos__) && !defined (INCLUDED_BY_MAIN_MODULE)
++#if !defined (INCLUDED_BY_MAIN_MODULE)
+ #define EXTERN_UNLESS_MAIN_MODULE extern
+ #else
+ #define EXTERN_UNLESS_MAIN_MODULE 
+diff --git a/include/iobuf.h b/include/iobuf.h
+index a1d58c9..25f682b 100644
+--- a/include/iobuf.h
++++ b/include/iobuf.h
+@@ -73,7 +73,7 @@ struct iobuf_struct {
+ };
+ 
+ #ifndef EXTERN_UNLESS_MAIN_MODULE
+-#if defined (__riscos__) && !defined (INCLUDED_BY_MAIN_MODULE)
++#if !defined (INCLUDED_BY_MAIN_MODULE)
+ #define EXTERN_UNLESS_MAIN_MODULE extern
+ #else
+ #define EXTERN_UNLESS_MAIN_MODULE 
+diff --git a/include/memory.h b/include/memory.h
+index 895d8a7..217d316 100644
+--- a/include/memory.h
++++ b/include/memory.h
+@@ -87,7 +87,7 @@ unsigned secmem_get_flags(void);
+ #define DBG_MEMSTAT   memory_stat_debug_mode
+ 
+ #ifndef EXTERN_UNLESS_MAIN_MODULE
+-#if defined (__riscos__) && !defined (INCLUDED_BY_MAIN_MODULE)
++#if !defined (INCLUDED_BY_MAIN_MODULE)
+ #define EXTERN_UNLESS_MAIN_MODULE extern
+ #else
+ #define EXTERN_UNLESS_MAIN_MODULE 
+diff --git a/include/mpi.h b/include/mpi.h
+index 81061d3..d529bda 100644
+--- a/include/mpi.h
++++ b/include/mpi.h
+@@ -38,7 +38,7 @@
+ #include "memory.h"
+ 
+ #ifndef EXTERN_UNLESS_MAIN_MODULE
+-#if defined (__riscos__) && !defined (INCLUDED_BY_MAIN_MODULE)
++#if !defined (INCLUDED_BY_MAIN_MODULE)
+ #define EXTERN_UNLESS_MAIN_MODULE extern
+ #else
+ #define EXTERN_UNLESS_MAIN_MODULE 
+diff --git a/tools/mpicalc.c b/tools/mpicalc.c
+index 1df27d9..647dfbd 100644
+--- a/tools/mpicalc.c
++++ b/tools/mpicalc.c
+@@ -30,6 +30,7 @@
+ #include <stdlib.h>
+ #include <ctype.h>
+ 
++#define INCLUDED_BY_MAIN_MODULE 1
+ #include "util.h"
+ #include "mpi.h"
+ #include "i18n.h"
