@@ -20,7 +20,6 @@ SRC_URI = "${GNUPG_MIRROR}/gnupg/gnupg-${PV}.tar.bz2 \
            file://CVE-2013-4242.patch \
            file://fix-ustar-check-issue.patch \
            file://0001-Make-it-build-with-gettext-0.20.patch \
-           file://0001-Make-it-build-with-GCC-10-which-uses-fno-common-by-d.patch \
            "
 
 SRC_URI[md5sum] = "b06a141cca5cd1a55bbdd25ab833303c"
@@ -88,6 +87,10 @@ EXTRA_OECONF = "--disable-ldap \
 # Force gcc's traditional handling of inline to avoid issues with gcc 5
 BUILD_CFLAGS += "-fgnu89-inline"
 CFLAGS += "-fgnu89-inline"
+
+# Force -fcommon to avoid issues with GCC 10 (which defaults to -fno-common)
+BUILD_CFLAGS += "-fcommon"
+CFLAGS += "-fcommon"
 
 do_install () {
 	autotools_do_install
