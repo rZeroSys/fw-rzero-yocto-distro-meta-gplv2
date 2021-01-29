@@ -18,6 +18,7 @@ SRC_URI = "${GNU_MIRROR}/grep/grep-${PV}.tar.bz2 \
            file://grep-egrep-fgrep-Fix-LSB-NG-cases.patch \
            file://search-fix-compilation-error-with-security-flags-ena.patch \
            file://0001-Fix-builds-with-gettext-0.20.patch \
+           file://autoconf270.patch \
            "
 
 SRC_URI[md5sum] = "52202fe462770fa6be1bb667bd6cf30c"
