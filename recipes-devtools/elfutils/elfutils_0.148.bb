@@ -61,6 +61,14 @@ inherit autotools gettext
 # but 0.175 has different license, so to be safe don't backport the fix, just ignore the issue
 CFLAGS += "-Wno-error=missing-attributes"
 
+# There is a fix in 0.171 version (commit b10d7eb74064c5906f031cd17c0f82041c6a4ca1)
+# but 0.171 has different license, so to be safe don't backport the fix, just ignore the issue
+CFLAGS += "-Wno-error=format-truncation="
+
+# There is a fix in 0.182 version (commit 5621fe5443da23112170235dd5cac161e5c75e65)
+# but 0.182 has different license, so to be safe don't backport the fix, just ignore the issue
+CFLAGS += "-Wno-error=stringop-overflow="
+
 EXTRA_OECONF = "--program-prefix=eu- --without-lzma"
 EXTRA_OECONF_append_class-native = " --without-bzlib"
 EXTRA_OECONF_append_libc-uclibc = " --enable-uclibc"
