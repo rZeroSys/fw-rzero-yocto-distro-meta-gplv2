@@ -27,6 +27,7 @@ SRC_URI = "${GNU_MIRROR}/coreutils/${BP}.tar.bz2 \
            file://no-man.patch \
            file://build-don-t-need-charset.alias-when-building-for-mus.patch \
            file://no-su.patch \
+           file://0001-sort.c-Reorder-includes-for-glibc-2.34-portability.patch \
            "
 
 SRC_URI[md5sum] = "c9607d8495f16e98906e7ed2d9751a06"
