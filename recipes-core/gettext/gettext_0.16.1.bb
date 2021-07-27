@@ -27,8 +27,6 @@ SRC_URI[sha256sum] = "0bf850d1a079fb5a61f0a47b1a9efd35eb44032255375e1cedb0253bc2
 
 PARALLEL_MAKE = ""
 
-LDFLAGS_prepend_libc-uclibc = " -lrt -lpthread "
-
 inherit autotools texinfo
 
 EXTRA_OECONF += "--without-lispdir \
@@ -81,15 +79,9 @@ FILES_gettext-runtime = "${bindir}/gettext \
                          ${libdir}/libasprintf${SODEV} \
                          ${libdir}/GNU.Gettext.dll \
                         "
-FILES_gettext-runtime_append_libc-uclibc = " ${libdir}/libintl.so.* \
-                                             ${libdir}/charset.alias \
-                                           "
 FILES_gettext-runtime-staticdev += "${libdir}/libasprintf.a"
 FILES_gettext-runtime-dev += "${includedir}/autosprintf.h \
                               ${libdir}/libasprintf${SOLIBDEV}"
-FILES_gettext-runtime-dev_append_libc-uclibc = " ${libdir}/libintl.so \
-                                                 ${includedir}/libintl.h \
-                                               "
 FILES_gettext-runtime-doc = "${mandir}/man1/gettext.* \
                              ${mandir}/man1/ngettext.* \
                              ${mandir}/man1/envsubst.* \

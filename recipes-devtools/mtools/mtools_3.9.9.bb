@@ -41,8 +41,6 @@ inherit autotools texinfo
 
 EXTRA_OECONF = "--without-x"
 
-LDFLAGS_append_libc-uclibc = " -liconv "
-
 BBCLASSEXTEND = "native nativesdk"
 
 PACKAGECONFIG ??= ""

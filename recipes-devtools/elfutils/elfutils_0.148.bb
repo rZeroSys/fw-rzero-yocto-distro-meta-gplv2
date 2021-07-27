@@ -44,9 +44,6 @@ SRC_URI += "\
 # Only apply when building musl based target recipe
 SRC_URI_append_libc-musl = " file://musl-support-for-elfutils-0.148.patch"
 
-# Only apply when building uclibc based target recipe
-SRC_URI_append_libc-uclibc = " file://uclibc-support-for-elfutils-0.148.patch"
-
 # The buildsystem wants to generate 2 .h files from source using a binary it just built,
 # which can not pass the cross compiling, so let's work around it by adding 2 .h files
 # along with the do_configure_prepend()
@@ -71,7 +68,6 @@ CFLAGS += "-Wno-error=stringop-overflow="
 
 EXTRA_OECONF = "--program-prefix=eu- --without-lzma"
 EXTRA_OECONF_append_class-native = " --without-bzlib"
-EXTRA_OECONF_append_libc-uclibc = " --enable-uclibc"
 
 do_configure_prepend() {
     sed -i '/^i386_dis.h:/,+4 {/.*/d}' ${S}/libcpu/Makefile.am
@@ -79,12 +75,11 @@ do_configure_prepend() {
     cp ${WORKDIR}/*dis.h ${S}/libcpu
 }
 
-# we can not build complete elfutils when using uclibc or musl
+# we can not build complete elfutils when using musl
 # but some recipes e.g. gcc 4.5 depends on libelf so we
-# build only libelf for uclibc and musl cases
+# build only libelf for musl cases
 
 EXTRA_OEMAKE_libc-musl = "-C libelf"
-EXTRA_OEMAKE_libc-uclibc = "-C libelf"
 EXTRA_OEMAKE_class-native = ""
 EXTRA_OEMAKE_class-nativesdk = ""
 
