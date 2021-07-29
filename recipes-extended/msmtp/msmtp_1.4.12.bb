@@ -24,12 +24,12 @@ PACKAGECONFIG[libidn] = "--with-libidn,--without-libidn,libidn"
 
 inherit gettext autotools update-alternatives
 
-ALTERNATIVE_${PN} = "sendmail"
+ALTERNATIVE:${PN} = "sendmail"
 ALTERNATIVE_TARGET[sendmail] = "${bindir}/msmtp"
 ALTERNATIVE_LINK_NAME[sendmail] = "${sbindir}/sendmail"
 ALTERNATIVE_PRIORITY = "100"
 
-pkg_postinst_${PN}_linuxstdbase () {
+pkg_postinst:${PN}:linuxstdbase () {
     # /usr/lib/sendmail is required by LSB specification
     [ ! -L $D/usr/lib/sendmail ] && ln -sf ${sbindir}/sendmail $D/usr/lib
 }

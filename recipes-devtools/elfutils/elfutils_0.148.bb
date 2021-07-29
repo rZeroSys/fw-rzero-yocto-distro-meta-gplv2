@@ -42,11 +42,11 @@ SRC_URI += "\
 "
 
 # Only apply when building musl based target recipe
-SRC_URI_append_libc-musl = " file://musl-support-for-elfutils-0.148.patch"
+SRC_URI:append:libc-musl = " file://musl-support-for-elfutils-0.148.patch"
 
 # The buildsystem wants to generate 2 .h files from source using a binary it just built,
 # which can not pass the cross compiling, so let's work around it by adding 2 .h files
-# along with the do_configure_prepend()
+# along with the do_configure:prepend()
 
 SRC_URI += "\
         file://i386_dis.h \
@@ -67,9 +67,9 @@ CFLAGS += "-Wno-error=format-truncation="
 CFLAGS += "-Wno-error=stringop-overflow="
 
 EXTRA_OECONF = "--program-prefix=eu- --without-lzma"
-EXTRA_OECONF_append_class-native = " --without-bzlib"
+EXTRA_OECONF:append:class-native = " --without-bzlib"
 
-do_configure_prepend() {
+do_configure:prepend() {
     sed -i '/^i386_dis.h:/,+4 {/.*/d}' ${S}/libcpu/Makefile.am
 
     cp ${WORKDIR}/*dis.h ${S}/libcpu
@@ -79,15 +79,15 @@ do_configure_prepend() {
 # but some recipes e.g. gcc 4.5 depends on libelf so we
 # build only libelf for musl cases
 
-EXTRA_OEMAKE_libc-musl = "-C libelf"
-EXTRA_OEMAKE_class-native = ""
-EXTRA_OEMAKE_class-nativesdk = ""
+EXTRA_OEMAKE:libc-musl = "-C libelf"
+EXTRA_OEMAKE:class-native = ""
+EXTRA_OEMAKE:class-nativesdk = ""
 
 BBCLASSEXTEND = "native nativesdk"
 
 # Package utilities separately
 PACKAGES =+ "${PN}-binutils libelf libasm libdw"
-FILES_${PN}-binutils = "\
+FILES:${PN}-binutils = "\
     ${bindir}/eu-addr2line \
     ${bindir}/eu-ld \
     ${bindir}/eu-nm \
@@ -95,13 +95,13 @@ FILES_${PN}-binutils = "\
     ${bindir}/eu-size \
     ${bindir}/eu-strip"
 
-FILES_libelf = "${libdir}/libelf-${PV}.so ${libdir}/libelf.so.*"
-FILES_libasm = "${libdir}/libasm-${PV}.so ${libdir}/libasm.so.*"
-FILES_libdw  = "${libdir}/libdw-${PV}.so ${libdir}/libdw.so.* ${libdir}/elfutils/lib*"
+FILES:libelf = "${libdir}/libelf-${PV}.so ${libdir}/libelf.so.*"
+FILES:libasm = "${libdir}/libasm-${PV}.so ${libdir}/libasm.so.*"
+FILES:libdw  = "${libdir}/libdw-${PV}.so ${libdir}/libdw.so.* ${libdir}/elfutils/lib*"
 # Some packages have the version preceeding the .so instead properly
 # versioned .so.<version>, so we need to reorder and repackage.
 #FILES_${PN} += "${libdir}/*-${PV}.so ${base_libdir}/*-${PV}.so"
 #FILES_SOLIBSDEV = "${libdir}/libasm.so ${libdir}/libdw.so ${libdir}/libelf.so"
 
 # The package contains symlinks that trip up insane
-INSANE_SKIP_${MLPREFIX}libdw = "dev-so"
+INSANE_SKIP:${MLPREFIX}libdw = "dev-so"

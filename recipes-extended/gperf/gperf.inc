@@ -13,7 +13,7 @@ inherit autotools
 # duplicating acinclude.m4 in every subdirectory, use absolute include path to aclocal
 EXTRA_AUTORECONF += " -I ${S}"
 
-do_configure_prepend() {
+do_configure:prepend() {
         if [ ! -e ${S}/acinclude.m4 ]; then
                 cat ${S}/aclocal.m4 > ${S}/acinclude.m4
         fi

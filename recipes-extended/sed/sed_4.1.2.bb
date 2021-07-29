@@ -18,7 +18,7 @@ SRC_URI[sha256sum] = "638e837ba765d5da0a30c98b57c2953cecea96827882f594612acace93
 
 inherit autotools texinfo update-alternatives gettext
 
-do_configure_prepend () {
+do_configure:prepend () {
 	cp ${WORKDIR}/Makevars ${S}/po/
 }
 
@@ -31,7 +31,7 @@ do_install () {
 	fi
 }
 
-ALTERNATIVE_${PN} = "sed"
+ALTERNATIVE:${PN} = "sed"
 ALTERNATIVE_LINK_NAME[sed] = "${base_bindir}/sed"
 ALTERNATIVE_PRIORITY = "100"
 

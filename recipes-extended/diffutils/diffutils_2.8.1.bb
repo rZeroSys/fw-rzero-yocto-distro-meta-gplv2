@@ -21,6 +21,6 @@ CACHED_CONFIGUREVARS = "\
     jm_cv_func_working_realloc=yes \
 "
 
-do_configure_prepend () {
+do_configure:prepend () {
 	chmod u+w ${S}/po/Makefile.in.in
 }

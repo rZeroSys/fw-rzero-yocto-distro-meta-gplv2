@@ -100,14 +100,14 @@ do_install () {
 }
 
 # split out gpgv from main package
-RDEPENDS_${PN} = "gpgv"
-RDEPENDS_${PN}_class-native = ""
+RDEPENDS:${PN} = "gpgv"
+RDEPENDS:${PN}:class-native = ""
 
 PACKAGES =+ "gpgv"
-FILES_gpgv = "${bindir}/gpgv"
+FILES:gpgv = "${bindir}/gpgv"
 
 # Exclude debug files from the main packages
-FILES_${PN} = "${bindir}/* ${datadir}/${BPN} ${libexecdir}/${BPN}/*"
+FILES:${PN} = "${bindir}/* ${datadir}/${BPN} ${libexecdir}/${BPN}/*"
 
 PACKAGECONFIG ??= ""
 PACKAGECONFIG[curl] = "--with-libcurl=${STAGING_LIBDIR},--without-libcurl,curl"

@@ -23,12 +23,12 @@ DEPENDS = "cwautomacros-native"
 
 inherit autotools texinfo update-alternatives
 
-do_configure_prepend() {
+do_configure:prepend() {
 	OLD="@ACLOCAL_CWFLAGS@"
 	NEW="-I ${STAGING_DIR_NATIVE}/${datadir}/cwautomacros/m4"
 	sed -i "s#${OLD}#${NEW}#g" `grep -rl ${OLD} ${S}`
 }
 
-ALTERNATIVE_${PN} = "which"
+ALTERNATIVE:${PN} = "which"
 ALTERNATIVE_PRIORITY = "100"
 

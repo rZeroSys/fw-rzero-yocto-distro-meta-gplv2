@@ -30,7 +30,7 @@ do_configure (){
     oe_runconf
 }
 
-do_install_append() {
+do_install:append() {
 	# Some distros have both /bin/perl and /usr/bin/perl, but we set perl location
 	# for target as /usr/bin/perl, so fix it to /usr/bin/perl.
 	for i in afmtodit mmroff; do
@@ -44,7 +44,7 @@ do_install_append() {
 	cp -rf ${D}${datadir}/groff/site-tmac/* ${D}${datadir}/groff/${PV}/tmac/
 }
 
-pkg_postinst_${PN}() {
+pkg_postinst:${PN}() {
 	ln -s tbl $D${bindir}/gtbl
 	echo "export GROFF_FONT_PATH=/usr/share/groff/${PV}/font" >> $D${sysconfdir}/profile
 	echo "export GROFF_TMAC_PATH=/usr/share/groff/${PV}/tmac" >> $D${sysconfdir}/profile

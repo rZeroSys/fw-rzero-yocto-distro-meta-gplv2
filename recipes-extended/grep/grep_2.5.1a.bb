@@ -27,13 +27,13 @@ SRC_URI[sha256sum] = "38c8a2bb9223d1fb1b10bdd607cf44830afc92fd451ac4cd07619bf92b
 inherit autotools gettext texinfo
 
 EXTRA_OECONF_INCLUDED_REGEX = "--without-included-regex"
-EXTRA_OECONF_INCLUDED_REGEX_libc-musl = "--with-included-regex"
+EXTRA_OECONF_INCLUDED_REGEX:libc-musl = "--with-included-regex"
 
 EXTRA_OECONF = "--disable-perl-regexp \
                 ${EXTRA_OECONF_INCLUDED_REGEX}"
 
 CFLAGS += "-D PROTOTYPES"
-do_configure_prepend () {
+do_configure:prepend () {
 	rm -f ${S}/m4/init.m4
 	cp -f ${WORKDIR}/Makevars ${S}/po/
 }
@@ -53,7 +53,7 @@ inherit update-alternatives
 
 ALTERNATIVE_PRIORITY = "100"
 
-ALTERNATIVE_${PN} = "grep egrep fgrep"
+ALTERNATIVE:${PN} = "grep egrep fgrep"
 ALTERNATIVE_LINK_NAME[grep] = "${base_bindir}/grep"
 ALTERNATIVE_LINK_NAME[egrep] = "${base_bindir}/egrep"
 ALTERNATIVE_LINK_NAME[fgrep] = "${base_bindir}/fgrep"

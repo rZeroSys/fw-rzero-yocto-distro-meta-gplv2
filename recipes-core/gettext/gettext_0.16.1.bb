@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=9ea3144f04c41cd2eada5d3f472e6ea5"
 
 PR = "r6"
 DEPENDS = "virtual/libiconv"
-DEPENDS_class-native = ""
+DEPENDS:class-native = ""
 PROVIDES = "virtual/libintl virtual/gettext"
-PROVIDES_class-native = "virtual/gettext-native"
+PROVIDES:class-native = "virtual/gettext-native"
 
 SRC_URI = "${GNU_MIRROR}/gettext/gettext-${PV}.tar.gz \
            file://gettext-vpath.patch \
@@ -37,7 +37,7 @@ EXTRA_OECONF += "--without-lispdir \
                  --disable-openmp \
                  --without-emacs \
                 "
-EXTRA_OECONF_append_libc-musl = "\
+EXTRA_OECONF:append:libc-musl = "\
                                  gt_cv_func_gnugettext1_libc=yes \
                                  gt_cv_func_gnugettext2_libc=yes \
                                 "
@@ -46,11 +46,11 @@ acpaths = '-I ${S}/autoconf-lib-link/m4/ \
            -I ${S}/gettext-runtime/m4 \
            -I ${S}/gettext-tools/m4'
 
-do_configure_prepend() {
+do_configure:prepend() {
 	rm -f ${S}/config/m4/libtool.m4
 }
 
-do_install_append_libc-musl () {
+do_install:append:libc-musl () {
 	rm -f ${D}${libdir}/charset.alias
 }
 
@@ -65,24 +65,24 @@ do_install_append_libc-musl () {
 # 4       KiB /ep93xx/libgcc-s-dev_4.2.2-r2_ep93xx.ipk
 
 PACKAGES =+ "libgettextlib libgettextsrc"
-FILES_libgettextlib = "${libdir}/libgettextlib-*.so*"
-FILES_libgettextsrc = "${libdir}/libgettextsrc-*.so*"
+FILES:libgettextlib = "${libdir}/libgettextlib-*.so*"
+FILES:libgettextsrc = "${libdir}/libgettextsrc-*.so*"
 
 PACKAGES =+ "gettext-runtime gettext-runtime-dev gettext-runtime-staticdev gettext-runtime-doc"
 
-FILES_${PN} += "${libdir}/${BPN}/*"
+FILES:${PN} += "${libdir}/${BPN}/*"
 
-FILES_gettext-runtime = "${bindir}/gettext \
+FILES:gettext-runtime = "${bindir}/gettext \
                          ${bindir}/ngettext \
                          ${bindir}/envsubst \
                          ${bindir}/gettext.sh \
                          ${libdir}/libasprintf${SODEV} \
                          ${libdir}/GNU.Gettext.dll \
                         "
-FILES_gettext-runtime-staticdev += "${libdir}/libasprintf.a"
-FILES_gettext-runtime-dev += "${includedir}/autosprintf.h \
+FILES:gettext-runtime-staticdev += "${libdir}/libasprintf.a"
+FILES:gettext-runtime-dev += "${includedir}/autosprintf.h \
                               ${libdir}/libasprintf${SOLIBDEV}"
-FILES_gettext-runtime-doc = "${mandir}/man1/gettext.* \
+FILES:gettext-runtime-doc = "${mandir}/man1/gettext.* \
                              ${mandir}/man1/ngettext.* \
                              ${mandir}/man1/envsubst.* \
                              ${mandir}/man1/.* \
@@ -97,11 +97,11 @@ FILES_gettext-runtime-doc = "${mandir}/man1/gettext.* \
                              ${infodir}/autosprintf.info \
                             "
 
-do_install_append() {
+do_install:append() {
     rm -f ${D}${libdir}/preloadable_libintl.so
 }
 
-do_install_append_class-native () {
+do_install:append:class-native () {
 	rm ${D}${datadir}/aclocal/*
 	rm ${D}${datadir}/gettext/config.rpath
 	rm ${D}${datadir}/gettext/po/Makefile.in.in

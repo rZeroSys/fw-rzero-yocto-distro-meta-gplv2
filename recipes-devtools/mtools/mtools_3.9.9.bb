@@ -8,8 +8,8 @@ PR = "r6"
 
 DEPENDS += "virtual/libiconv"
 
-RDEPENDS_${PN}_libc-glibc = "glibc-gconv-ibm850"
-RRECOMMENDS_${PN}_libc-glibc = "\
+RDEPENDS:${PN}:libc-glibc = "glibc-gconv-ibm850"
+RRECOMMENDS:${PN}:libc-glibc = "\
 	glibc-gconv-ibm437 \
 	glibc-gconv-ibm737 \
 	glibc-gconv-ibm775 \
@@ -46,7 +46,7 @@ BBCLASSEXTEND = "native nativesdk"
 PACKAGECONFIG ??= ""
 PACKAGECONFIG[libbsd] = "ac_cv_lib_bsd_main=yes,ac_cv_lib_bsd_main=no,libbsd"
 
-do_install_prepend () {
+do_install:prepend () {
     # Create bindir to fix parallel installation issues
     mkdir -p ${D}/${bindir}
     mkdir -p ${D}/${datadir}

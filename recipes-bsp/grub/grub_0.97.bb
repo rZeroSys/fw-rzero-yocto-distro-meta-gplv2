@@ -9,7 +9,7 @@ LICENSE = "GPLv2+"
 LIC_FILES_CHKSUM = "file://COPYING;md5=c93c0550bd3173f4504b2cbd8991e50b \
                     file://grub/main.c;beginline=3;endline=9;md5=22a5f28d2130fff9f2a17ed54be90ed6"
 
-RDEPENDS_${PN} = "diffutils"
+RDEPENDS:${PN} = "diffutils"
 PR = "r6"
 
 SRC_URI = "http://alpha.gnu.org/gnu/grub/grub-${PV}.tar.gz; \
@@ -29,7 +29,7 @@ COMPATIBLE_HOST = "i.86.*-linux"
 
 EXTRA_OECONF = "--without-curses"
 
-do_install_append_vmware() {
+do_install:append_vmware() {
 	mkdir -p ${D}/boot/
 	ln -sf ../usr/lib/grub/{$TARGET_ARCH}{$TARGET_VENDOR}/ ${D}/boot/grub
 }

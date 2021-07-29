@@ -69,13 +69,13 @@ EXTRA_AUTORECONF += "--exclude=autoheader"
 
 LEAD_SONAME = "libreadline.so"
 
-do_configure_prepend () {
+do_configure:prepend () {
 	if [ ! -e ${S}/acinclude.m4 ]; then
 		cat ${S}/aclocal.m4 > ${S}/acinclude.m4
 	fi
 }
 
-do_install_append () {
+do_install:append () {
 	# Make install doesn't properly install these
 	oe_libinstall -so -C shlib libhistory ${D}${libdir}
 	oe_libinstall -so -C shlib libreadline ${D}${libdir}

@@ -15,6 +15,6 @@ inherit autotools texinfo
 
 EXTRA_OECONF = "'CC=${CC}' 'CXX=${CXX}' 'CFLAGS=${CFLAGS}' 'CXXFLAGS=${CXXFLAGS}' 'CPPFLAGS=${CPPFLAGS}' 'LDFLAGS=${LDFLAGS}'"
 
-CONFIGUREOPTS_remove = "--disable-dependency-tracking"
-CONFIGUREOPTS_remove = "--disable-silent-rules"
-EXTRA_OECONF_remove = "--disable-static"
+CONFIGUREOPTS:remove = "--disable-dependency-tracking"
+CONFIGUREOPTS:remove = "--disable-silent-rules"
+EXTRA_OECONF:remove = "--disable-static"

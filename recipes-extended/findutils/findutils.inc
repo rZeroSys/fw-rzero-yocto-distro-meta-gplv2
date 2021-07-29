@@ -10,7 +10,7 @@ SRC_URI = "${GNU_MIRROR}/${BPN}/${BP}.tar.gz"
 
 inherit autotools gettext texinfo update-alternatives upstream-version-is-even
 
-ALTERNATIVE_${PN} = "find xargs"
+ALTERNATIVE:${PN} = "find xargs"
 ALTERNATIVE_PRIORITY = "100"
 
 BBCLASSEXTEND = "native nativesdk"
