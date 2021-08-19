@@ -66,6 +66,9 @@ CFLAGS += "-Wno-error=format-truncation="
 # but 0.182 has different license, so to be safe don't backport the fix, just ignore the issue
 CFLAGS += "-Wno-error=stringop-overflow="
 
+# There are fixes in later versions for this but the old version won't be reproducible
+TARGET_CC_ARCH:remove:class-target = " -Wdate-time"
+
 EXTRA_OECONF = "--program-prefix=eu- --without-lzma"
 EXTRA_OECONF:append:class-native = " --without-bzlib"
 
