@@ -112,6 +112,6 @@ do_install:append:class-native () {
 # available, and we don't want to use older macros from the target gettext in
 # a non-gplv3 build, so kill them and let dependent recipes rely on
 # gettext-native.
-SYSROOT_DIRS_BLACKLIST += "${datadir}/aclocal"
+SYSROOT_DIRS_IGNORE += "${datadir}/aclocal"
 
 BBCLASSEXTEND = "native nativesdk"
