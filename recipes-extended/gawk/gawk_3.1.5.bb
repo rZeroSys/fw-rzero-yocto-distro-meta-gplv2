@@ -8,7 +8,7 @@ SECTION = "console/utils"
 
 # gawk <= 3.1.5: GPLv2
 # gawk >= 3.1.6: GPLv3
-LICENSE = "GPLv2"
+LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=59530bdf33659b29e73d4adb9f9f6552"
 
 RDEPENDS:gawk += "gawk-common"

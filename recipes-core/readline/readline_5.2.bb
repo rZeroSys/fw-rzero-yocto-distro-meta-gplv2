@@ -5,7 +5,7 @@ additional functions to maintain a list of previously-entered command lines, to 
 lines, and perform csh-like history expansion on previous commands."
 SECTION = "libs"
 
-LICENSE = "GPLv2+"
+LICENSE = "GPL-2.0-or-later"
 LIC_FILES_CHKSUM = "file://COPYING;md5=03b36fdd84f74b8d8189a202b980b67f"
 
 DEPENDS += "ncurses"

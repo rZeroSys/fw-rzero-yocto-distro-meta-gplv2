@@ -2,7 +2,7 @@ SUMMARY = "Pattern matching utilities"
 DESCRIPTION = "The GNU versions of commonly used grep utilities.  The grep command searches one or more input \
 files for lines containing a match to a specified pattern."
 SECTION = "console/utils"
-LICENSE = "GPLv2"
+LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=0636e73ff0215e8d672dc4c32c317bb3"
 
 PR = "r2"
